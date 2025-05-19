@@ -1,0 +1,222 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f2f5;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+/* En-tête et navigation */
+h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #e74c3c;
+    padding-bottom: 10px;
+    transition: color 0.3s;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin: 15px 0;
+}
+
+.header-links a {
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.header-links a:hover {
+    color: #e74c3c;
+    transform: translateY(-2px);
+}
+
+.header-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #e74c3c;
+    transition: width 0.3s ease;
+}
+
+.header-links a:hover::after {
+    width: 100%;
+}
+
+/* Structure conteneur */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Section header */
+.header {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #e74c3c;
+}
+
+/* Message d'avertissement */
+.warning {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(231, 76, 60, 0.08);
+    border-radius: 8px;
+    border-left: 5px solid #e74c3c;
+    position: relative;
+}
+
+.warning h2 {
+    color: #c0392b;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.warning::before {
+    content: '⚠️';
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+/* Liste des livres */
+.book-list {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.book-item {
+    border-bottom: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.book-item:last-child {
+    border-bottom: none;
+}
+
+.book-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(10px);
+}
+
+.book-item a {
+    display: block;
+    color: #34495e;
+    text-decoration: none;
+    padding: 18px 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.book-item a:hover {
+    color: #e74c3c;
+}
+
+.book-item a::before {
+    content: "🗑️";
+    margin-right: 15px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.book-item a:hover::before {
+    opacity: 1;
+}
+
+/* Séparateur pour le titre et l'auteur */
+.book-item a span.separator {
+    color: #7f8c8d;
+    margin: 0 10px;
+}
+
+/* Message si aucun livre */
+.no-books {
+    text-align: center;
+    padding: 30px;
+    color: #7f8c8d;
+    font-style: italic;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .header, .book-list {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .book-item a {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .warning h2 {
+        font-size: 1.1rem;
+    }
+    
+    .book-item a {
+        font-size: 0.9rem;
+    }
+}
